@@ -1,5 +1,7 @@
 import ky from "ky"
 
+import { demoRequest, isDemo } from "./demo/demoApi"
+
 import { getAccessToken, setAccessToken } from "./tokenStore"
 
 // 진행 중인 refresh 요청을 공유 — 동시 401이 여러 개 와도 한 번만 refresh
@@ -75,6 +77,9 @@ export const apiClient = <T>(config: {
 	data?: unknown
 	signal?: AbortSignal
 }): Promise<T> => {
+	// 데모 모드: 녹화 응답 재생
+	if (isDemo) return demoRequest<T>(config)
+
 	const searchParams = config.params
 		? Object.fromEntries(
 				Object.entries(config.params).filter(([, v]) => v !== undefined && v !== null),
