@@ -9,80 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as OauthRouteImport } from './routes/oauth'
-import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AppNotificationsRouteImport } from './routes/_app/notifications'
-import { Route as AppNoticeRouteImport } from './routes/_app/notice'
-import { Route as AppMypageRouteImport } from './routes/_app/mypage'
-import { Route as AppMyBookmarksRouteImport } from './routes/_app/my-bookmarks'
-import { Route as AppExcellentCasesRouteImport } from './routes/_app/excellent-cases'
-import { Route as AppAdminManualRouteImport } from './routes/_app/admin-manual'
-import { Route as AppAdminExcellentCasesRouteImport } from './routes/_app/admin-excellent-cases'
-import { Route as AppAdminEmployeesRouteImport } from './routes/_app/admin-employees'
-import { Route as AppAdminAnalysisFailedRouteImport } from './routes/_app/admin-analysis-failed'
+import { Route as AppRouteImport } from './routes/_app'
+import { Route as OauthRouteImport } from './routes/oauth'
 import { Route as AppConsultRouteImport } from './routes/_app/_consult'
-import { Route as AppConsultSummaryRouteImport } from './routes/_app/_consult/summary'
-import { Route as AppConsultOutboundReportRouteImport } from './routes/_app/_consult/outbound-report'
-import { Route as AppConsultManualRouteImport } from './routes/_app/_consult/manual'
-import { Route as AppConsultConsultationResultRouteImport } from './routes/_app/_consult/consultation-result'
-import { Route as AppConsultConsultationListRouteImport } from './routes/_app/_consult/consultation-list'
-import { Route as AppConsultAnalysisRouteImport } from './routes/_app/_consult/analysis'
-import { Route as AppConsultAdminReportRouteImport } from './routes/_app/_consult/admin-report'
+import { Route as AppAdminAnalysisFailedRouteImport } from './routes/_app/admin-analysis-failed'
+import { Route as AppAdminEmployeesRouteImport } from './routes/_app/admin-employees'
+import { Route as AppAdminExcellentCasesRouteImport } from './routes/_app/admin-excellent-cases'
+import { Route as AppAdminManualRouteImport } from './routes/_app/admin-manual'
+import { Route as AppExcellentCasesRouteImport } from './routes/_app/excellent-cases'
+import { Route as AppMyBookmarksRouteImport } from './routes/_app/my-bookmarks'
+import { Route as AppMypageRouteImport } from './routes/_app/mypage'
+import { Route as AppNoticeRouteImport } from './routes/_app/notice'
+import { Route as AppNotificationsRouteImport } from './routes/_app/notifications'
 import { Route as AppConsultAdminManualSettingsRouteImport } from './routes/_app/_consult/admin-manual-settings'
+import { Route as AppConsultAdminReportRouteImport } from './routes/_app/_consult/admin-report'
+import { Route as AppConsultAnalysisRouteImport } from './routes/_app/_consult/analysis'
+import { Route as AppConsultConsultationListRouteImport } from './routes/_app/_consult/consultation-list'
+import { Route as AppConsultConsultationResultRouteImport } from './routes/_app/_consult/consultation-result'
+import { Route as AppConsultManualRouteImport } from './routes/_app/_consult/manual'
+import { Route as AppConsultOutboundReportRouteImport } from './routes/_app/_consult/outbound-report'
+import { Route as AppConsultSummaryRouteImport } from './routes/_app/_consult/summary'
 
-const OauthRoute = OauthRouteImport.update({
-  id: '/oauth',
-  path: '/oauth',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppRoute = AppRouteImport.update({
   id: '/_app',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const OauthRoute = OauthRouteImport.update({
+  id: '/oauth',
+  path: '/oauth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AppNotificationsRoute = AppNotificationsRouteImport.update({
-  id: '/notifications',
-  path: '/notifications',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppNoticeRoute = AppNoticeRouteImport.update({
-  id: '/notice',
-  path: '/notice',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppMypageRoute = AppMypageRouteImport.update({
-  id: '/mypage',
-  path: '/mypage',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppMyBookmarksRoute = AppMyBookmarksRouteImport.update({
-  id: '/my-bookmarks',
-  path: '/my-bookmarks',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppExcellentCasesRoute = AppExcellentCasesRouteImport.update({
-  id: '/excellent-cases',
-  path: '/excellent-cases',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppAdminManualRoute = AppAdminManualRouteImport.update({
-  id: '/admin-manual',
-  path: '/admin-manual',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppAdminExcellentCasesRoute = AppAdminExcellentCasesRouteImport.update({
-  id: '/admin-excellent-cases',
-  path: '/admin-excellent-cases',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppAdminEmployeesRoute = AppAdminEmployeesRouteImport.update({
-  id: '/admin-employees',
-  path: '/admin-employees',
+const AppConsultRoute = AppConsultRouteImport.update({
+  id: '/_consult',
   getParentRoute: () => AppRoute,
 } as any)
 const AppAdminAnalysisFailedRoute = AppAdminAnalysisFailedRouteImport.update({
@@ -90,13 +54,77 @@ const AppAdminAnalysisFailedRoute = AppAdminAnalysisFailedRouteImport.update({
   path: '/admin-analysis-failed',
   getParentRoute: () => AppRoute,
 } as any)
-const AppConsultRoute = AppConsultRouteImport.update({
-  id: '/_consult',
+const AppAdminEmployeesRoute = AppAdminEmployeesRouteImport.update({
+  id: '/admin-employees',
+  path: '/admin-employees',
   getParentRoute: () => AppRoute,
 } as any)
-const AppConsultSummaryRoute = AppConsultSummaryRouteImport.update({
-  id: '/summary',
-  path: '/summary',
+const AppAdminExcellentCasesRoute = AppAdminExcellentCasesRouteImport.update({
+  id: '/admin-excellent-cases',
+  path: '/admin-excellent-cases',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAdminManualRoute = AppAdminManualRouteImport.update({
+  id: '/admin-manual',
+  path: '/admin-manual',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppExcellentCasesRoute = AppExcellentCasesRouteImport.update({
+  id: '/excellent-cases',
+  path: '/excellent-cases',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMyBookmarksRoute = AppMyBookmarksRouteImport.update({
+  id: '/my-bookmarks',
+  path: '/my-bookmarks',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMypageRoute = AppMypageRouteImport.update({
+  id: '/mypage',
+  path: '/mypage',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppNoticeRoute = AppNoticeRouteImport.update({
+  id: '/notice',
+  path: '/notice',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppNotificationsRoute = AppNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppConsultAdminManualSettingsRoute =
+  AppConsultAdminManualSettingsRouteImport.update({
+    id: '/admin-manual-settings',
+    path: '/admin-manual-settings',
+    getParentRoute: () => AppConsultRoute,
+  } as any)
+const AppConsultAdminReportRoute = AppConsultAdminReportRouteImport.update({
+  id: '/admin-report',
+  path: '/admin-report',
+  getParentRoute: () => AppConsultRoute,
+} as any)
+const AppConsultAnalysisRoute = AppConsultAnalysisRouteImport.update({
+  id: '/analysis',
+  path: '/analysis',
+  getParentRoute: () => AppConsultRoute,
+} as any)
+const AppConsultConsultationListRoute =
+  AppConsultConsultationListRouteImport.update({
+    id: '/consultation-list',
+    path: '/consultation-list',
+    getParentRoute: () => AppConsultRoute,
+  } as any)
+const AppConsultConsultationResultRoute =
+  AppConsultConsultationResultRouteImport.update({
+    id: '/consultation-result',
+    path: '/consultation-result',
+    getParentRoute: () => AppConsultRoute,
+  } as any)
+const AppConsultManualRoute = AppConsultManualRouteImport.update({
+  id: '/manual',
+  path: '/manual',
   getParentRoute: () => AppConsultRoute,
 } as any)
 const AppConsultOutboundReportRoute =
@@ -105,39 +133,11 @@ const AppConsultOutboundReportRoute =
     path: '/outbound-report',
     getParentRoute: () => AppConsultRoute,
   } as any)
-const AppConsultManualRoute = AppConsultManualRouteImport.update({
-  id: '/manual',
-  path: '/manual',
+const AppConsultSummaryRoute = AppConsultSummaryRouteImport.update({
+  id: '/summary',
+  path: '/summary',
   getParentRoute: () => AppConsultRoute,
 } as any)
-const AppConsultConsultationResultRoute =
-  AppConsultConsultationResultRouteImport.update({
-    id: '/consultation-result',
-    path: '/consultation-result',
-    getParentRoute: () => AppConsultRoute,
-  } as any)
-const AppConsultConsultationListRoute =
-  AppConsultConsultationListRouteImport.update({
-    id: '/consultation-list',
-    path: '/consultation-list',
-    getParentRoute: () => AppConsultRoute,
-  } as any)
-const AppConsultAnalysisRoute = AppConsultAnalysisRouteImport.update({
-  id: '/analysis',
-  path: '/analysis',
-  getParentRoute: () => AppConsultRoute,
-} as any)
-const AppConsultAdminReportRoute = AppConsultAdminReportRouteImport.update({
-  id: '/admin-report',
-  path: '/admin-report',
-  getParentRoute: () => AppConsultRoute,
-} as any)
-const AppConsultAdminManualSettingsRoute =
-  AppConsultAdminManualSettingsRouteImport.update({
-    id: '/admin-manual-settings',
-    path: '/admin-manual-settings',
-    getParentRoute: () => AppConsultRoute,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -281,11 +281,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/oauth': {
-      id: '/oauth'
-      path: '/oauth'
-      fullPath: '/oauth'
-      preLoaderRoute: typeof OauthRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app': {
@@ -295,67 +295,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/oauth': {
+      id: '/oauth'
+      path: '/oauth'
+      fullPath: '/oauth'
+      preLoaderRoute: typeof OauthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_app/notifications': {
-      id: '/_app/notifications'
-      path: '/notifications'
-      fullPath: '/notifications'
-      preLoaderRoute: typeof AppNotificationsRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/notice': {
-      id: '/_app/notice'
-      path: '/notice'
-      fullPath: '/notice'
-      preLoaderRoute: typeof AppNoticeRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/mypage': {
-      id: '/_app/mypage'
-      path: '/mypage'
-      fullPath: '/mypage'
-      preLoaderRoute: typeof AppMypageRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/my-bookmarks': {
-      id: '/_app/my-bookmarks'
-      path: '/my-bookmarks'
-      fullPath: '/my-bookmarks'
-      preLoaderRoute: typeof AppMyBookmarksRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/excellent-cases': {
-      id: '/_app/excellent-cases'
-      path: '/excellent-cases'
-      fullPath: '/excellent-cases'
-      preLoaderRoute: typeof AppExcellentCasesRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/admin-manual': {
-      id: '/_app/admin-manual'
-      path: '/admin-manual'
-      fullPath: '/admin-manual'
-      preLoaderRoute: typeof AppAdminManualRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/admin-excellent-cases': {
-      id: '/_app/admin-excellent-cases'
-      path: '/admin-excellent-cases'
-      fullPath: '/admin-excellent-cases'
-      preLoaderRoute: typeof AppAdminExcellentCasesRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/admin-employees': {
-      id: '/_app/admin-employees'
-      path: '/admin-employees'
-      fullPath: '/admin-employees'
-      preLoaderRoute: typeof AppAdminEmployeesRouteImport
+    '/_app/_consult': {
+      id: '/_app/_consult'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AppConsultRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/admin-analysis-failed': {
@@ -365,53 +316,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAdminAnalysisFailedRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/_consult': {
-      id: '/_app/_consult'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof AppConsultRouteImport
+    '/_app/admin-employees': {
+      id: '/_app/admin-employees'
+      path: '/admin-employees'
+      fullPath: '/admin-employees'
+      preLoaderRoute: typeof AppAdminEmployeesRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/_consult/summary': {
-      id: '/_app/_consult/summary'
-      path: '/summary'
-      fullPath: '/summary'
-      preLoaderRoute: typeof AppConsultSummaryRouteImport
-      parentRoute: typeof AppConsultRoute
+    '/_app/admin-excellent-cases': {
+      id: '/_app/admin-excellent-cases'
+      path: '/admin-excellent-cases'
+      fullPath: '/admin-excellent-cases'
+      preLoaderRoute: typeof AppAdminExcellentCasesRouteImport
+      parentRoute: typeof AppRoute
     }
-    '/_app/_consult/outbound-report': {
-      id: '/_app/_consult/outbound-report'
-      path: '/outbound-report'
-      fullPath: '/outbound-report'
-      preLoaderRoute: typeof AppConsultOutboundReportRouteImport
-      parentRoute: typeof AppConsultRoute
+    '/_app/admin-manual': {
+      id: '/_app/admin-manual'
+      path: '/admin-manual'
+      fullPath: '/admin-manual'
+      preLoaderRoute: typeof AppAdminManualRouteImport
+      parentRoute: typeof AppRoute
     }
-    '/_app/_consult/manual': {
-      id: '/_app/_consult/manual'
-      path: '/manual'
-      fullPath: '/manual'
-      preLoaderRoute: typeof AppConsultManualRouteImport
-      parentRoute: typeof AppConsultRoute
+    '/_app/excellent-cases': {
+      id: '/_app/excellent-cases'
+      path: '/excellent-cases'
+      fullPath: '/excellent-cases'
+      preLoaderRoute: typeof AppExcellentCasesRouteImport
+      parentRoute: typeof AppRoute
     }
-    '/_app/_consult/consultation-result': {
-      id: '/_app/_consult/consultation-result'
-      path: '/consultation-result'
-      fullPath: '/consultation-result'
-      preLoaderRoute: typeof AppConsultConsultationResultRouteImport
-      parentRoute: typeof AppConsultRoute
+    '/_app/my-bookmarks': {
+      id: '/_app/my-bookmarks'
+      path: '/my-bookmarks'
+      fullPath: '/my-bookmarks'
+      preLoaderRoute: typeof AppMyBookmarksRouteImport
+      parentRoute: typeof AppRoute
     }
-    '/_app/_consult/consultation-list': {
-      id: '/_app/_consult/consultation-list'
-      path: '/consultation-list'
-      fullPath: '/consultation-list'
-      preLoaderRoute: typeof AppConsultConsultationListRouteImport
-      parentRoute: typeof AppConsultRoute
+    '/_app/mypage': {
+      id: '/_app/mypage'
+      path: '/mypage'
+      fullPath: '/mypage'
+      preLoaderRoute: typeof AppMypageRouteImport
+      parentRoute: typeof AppRoute
     }
-    '/_app/_consult/analysis': {
-      id: '/_app/_consult/analysis'
-      path: '/analysis'
-      fullPath: '/analysis'
-      preLoaderRoute: typeof AppConsultAnalysisRouteImport
+    '/_app/notice': {
+      id: '/_app/notice'
+      path: '/notice'
+      fullPath: '/notice'
+      preLoaderRoute: typeof AppNoticeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/notifications': {
+      id: '/_app/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof AppNotificationsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/_consult/admin-manual-settings': {
+      id: '/_app/_consult/admin-manual-settings'
+      path: '/admin-manual-settings'
+      fullPath: '/admin-manual-settings'
+      preLoaderRoute: typeof AppConsultAdminManualSettingsRouteImport
       parentRoute: typeof AppConsultRoute
     }
     '/_app/_consult/admin-report': {
@@ -421,11 +386,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppConsultAdminReportRouteImport
       parentRoute: typeof AppConsultRoute
     }
-    '/_app/_consult/admin-manual-settings': {
-      id: '/_app/_consult/admin-manual-settings'
-      path: '/admin-manual-settings'
-      fullPath: '/admin-manual-settings'
-      preLoaderRoute: typeof AppConsultAdminManualSettingsRouteImport
+    '/_app/_consult/analysis': {
+      id: '/_app/_consult/analysis'
+      path: '/analysis'
+      fullPath: '/analysis'
+      preLoaderRoute: typeof AppConsultAnalysisRouteImport
+      parentRoute: typeof AppConsultRoute
+    }
+    '/_app/_consult/consultation-list': {
+      id: '/_app/_consult/consultation-list'
+      path: '/consultation-list'
+      fullPath: '/consultation-list'
+      preLoaderRoute: typeof AppConsultConsultationListRouteImport
+      parentRoute: typeof AppConsultRoute
+    }
+    '/_app/_consult/consultation-result': {
+      id: '/_app/_consult/consultation-result'
+      path: '/consultation-result'
+      fullPath: '/consultation-result'
+      preLoaderRoute: typeof AppConsultConsultationResultRouteImport
+      parentRoute: typeof AppConsultRoute
+    }
+    '/_app/_consult/manual': {
+      id: '/_app/_consult/manual'
+      path: '/manual'
+      fullPath: '/manual'
+      preLoaderRoute: typeof AppConsultManualRouteImport
+      parentRoute: typeof AppConsultRoute
+    }
+    '/_app/_consult/outbound-report': {
+      id: '/_app/_consult/outbound-report'
+      path: '/outbound-report'
+      fullPath: '/outbound-report'
+      preLoaderRoute: typeof AppConsultOutboundReportRouteImport
+      parentRoute: typeof AppConsultRoute
+    }
+    '/_app/_consult/summary': {
+      id: '/_app/_consult/summary'
+      path: '/summary'
+      fullPath: '/summary'
+      preLoaderRoute: typeof AppConsultSummaryRouteImport
       parentRoute: typeof AppConsultRoute
     }
   }
