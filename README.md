@@ -177,7 +177,7 @@ Dockerfile의 `ARG` / `ENV`에서 확인된 빌드 타임 환경 변수입니다
 
 백엔드(Spring Boot·MySQL·MongoDB·Elasticsearch·Redis) 없이 화면을 둘러볼 수 있는 정적 데모.
 
-**데모: https://aicc-crm-tawny.vercel.app**
+**데모: https://aicc-crm.vercel.app**
 
 - 로그인 화면의 **상담사로 둘러보기 / 관리자로 둘러보기**로 진입
 - 데이터: 2026년 8~10월 샘플 상담 1,080건 (배치 서버 더미 생성 → 로컬 API 응답 녹화, `public/demo/*.json`)
