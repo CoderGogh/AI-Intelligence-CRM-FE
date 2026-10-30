@@ -169,6 +169,19 @@ Dockerfile의 `ARG` / `ENV`에서 확인된 빌드 타임 환경 변수입니다
 | `VITE_API_BASE_URL` | API 서버 기본 URL — 예: `http://localhost:8080/api` |
 | `VITE_GOOGLE_REDIRECT_URI` | Google OAuth2 리다이렉트 URI |
 | `VITE_GOOGLE_AUTH_URL` | Google OAuth2 인증 엔드포인트 URL |
+| `VITE_DEMO_MODE` | `true`면 백엔드 없이 녹화 응답으로 동작 (데모 배포용) |
+
+---
+
+## 🎬 데모 배포 (Vercel)
+
+백엔드(Spring Boot·MySQL·MongoDB·Elasticsearch·Redis) 없이 화면을 둘러볼 수 있는 정적 데모.
+
+- 로그인 화면의 **상담사로 둘러보기 / 관리자로 둘러보기**로 진입
+- 데이터: 2026년 8~10월 샘플 상담 1,080건 (배치 서버 더미 생성 → 로컬 API 응답 녹화, `public/demo/*.json`)
+- 저장·수정 요청은 성공 응답만 돌려주고 실제로 바뀌지 않음
+- 빌드: `npm run build:demo` → `dist/client` (SPA, `vercel.json`)
+- AI 분석 값은 Gemini 대신 상담 원문 기반 규칙으로 생성한 데모 값
 
 ---
 

@@ -1,5 +1,6 @@
 import { useId, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
+import { isDemo } from "../../shared/api/demo/demoApi";
 import { useMutationPostLoginQuery } from "../../shared/api/generated/auth";
 import { setRole } from "../../shared/api/roleStore";
 import { setAccessToken } from "../../shared/api/tokenStore";
@@ -92,17 +93,43 @@ export function LoginPage() {
             <span className={s.orDividerText}>또는</span>
           </div>
 
-          <Button
-            variant="secondary"
-            type="button"
-            fullWidth
-            onClick={() => {
-              window.location.href = import.meta.env.VITE_GOOGLE_AUTH_URL;
-            }}
-          >
-            <GoogleIcon />
-            Google로 로그인
-          </Button>
+          {isDemo ? (
+            <>
+              <Button
+                variant="secondary"
+                type="button"
+                fullWidth
+                disabled={isPending}
+                onClick={() => login({ data: { loginId: "agent01", password: "demo" } })}
+              >
+                상담사로 둘러보기
+              </Button>
+              <Button
+                variant="secondary"
+                type="button"
+                fullWidth
+                disabled={isPending}
+                onClick={() => login({ data: { loginId: "admin", password: "demo" } })}
+              >
+                관리자로 둘러보기
+              </Button>
+              <p className={s.demoNote}>
+                데모 모드: 2026년 8~10월 샘플 데이터로 동작하며 변경 내용은 저장되지 않습니다.
+              </p>
+            </>
+          ) : (
+            <Button
+              variant="secondary"
+              type="button"
+              fullWidth
+              onClick={() => {
+                window.location.href = import.meta.env.VITE_GOOGLE_AUTH_URL;
+              }}
+            >
+              <GoogleIcon />
+              Google로 로그인
+            </Button>
+          )}
         </form>
       </div>
     </div>

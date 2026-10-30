@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run build:demo",
+  "outputDirectory": "dist/client",
+  "rewrites": [{ "source": "/((?!assets/|demo/).*)", "destination": "/_shell.html" }]
+}
