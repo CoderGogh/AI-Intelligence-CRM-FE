@@ -9,6 +9,7 @@ import {
 
 import { Providers } from "../app/providers";
 import appCss from "../app/styles.css?url";
+import { isDemo } from "../shared/api/demo/demoApi";
 import { getAccessToken, setAccessToken } from "../shared/api/tokenStore";
 import { ROUTES } from "../shared/config/routes";
 
@@ -25,6 +26,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 			// 토큰이 있으면 통과 (만료 여부는 afterResponse 401 hook이 처리)
 			if (getAccessToken()) return;
+
+			// 데모 모드는 로그인 화면에서 시작
+			if (isDemo) throw redirect({ to: ROUTES.LOGIN });
 
 			// 토큰이 없으면 httpOnly 쿠키의 refresh token으로 갱신 시도
 			try {
