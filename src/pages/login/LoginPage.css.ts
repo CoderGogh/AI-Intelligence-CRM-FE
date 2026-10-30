@@ -78,3 +78,11 @@ export const globalErrorBox = style({
   fontSize: vars.fontSize.sm,
   color: vars.color.error,
 });
+
+export const demoNote = style({
+  fontSize: vars.fontSize.xs,
+  color: vars.color.textSecondary,
+  textAlign: "center",
+  lineHeight: 1.5,
+  margin: 0,
+});
